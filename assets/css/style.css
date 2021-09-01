@@ -1,0 +1,298 @@
+/* font-family, h2, p, header et footer sont utilisés dans les deux pages */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+h2{
+    font-size: 8vh;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 900;
+}
+p {
+    font-size: 2vh;
+    color: white;
+    font-weight: 300;
+    line-height: 3.5vh;
+}
+header {
+    width: 100vw;
+    height: 20vh;
+}
+/* class container utilisee sur la plupart des elements cf fichiers .html*/
+.container {
+    width: 80vw;
+    margin: auto;
+}
+header nav{
+    padding: 6vh 0;
+    display: grid;
+    grid-template-columns: 4fr repeat(4, 1fr);
+    align-items: center;
+}
+header nav a {
+    text-decoration: none;
+    color: #6DCED4;
+}
+header nav a img {
+    width: 4rem;
+    height: 5rem;
+}
+/* Premiere page, index.html */
+.premiereSection {
+    background-image: url(../img-4/ballon.jpg);
+    width: 100vw;
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.premiereSection article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+.premiereSection article h2{
+    width: 40vw;
+    padding: 5vh 0;
+}
+.premiereSection article p{
+    padding: 5vh 0;
+    text-transform: uppercase;
+}
+.premiereSection article span input[value="DÉCOUVREZ NOUS"]{
+    background-color: #85d9dd;
+    color: white;
+    border-color: transparent;
+    padding: 1rem 1rem;
+}
+.deuxiemeSection {
+    background-color: #539D9F;
+    height: auto;
+}
+.deuxiemeSection div {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+   padding: 4vh 0;
+}
+/* utilisation de subgrid pour cibler correctement les images dans le grid*/
+.deuxiemeSection div a{
+    display: grid;
+  grid-template-columns: subgrid;
+}
+/* Pour que chaque image se centre dans son container */
+.deuxiemeSection div a:first-child img, .deuxiemeSection div a:nth-child(2) img, .deuxiemeSection div a:nth-child(3) img, .deuxiemeSection div a:last-child img{
+    justify-self: center;
+}
+/* Le footer est le meme dans la premiere et deuxieme page */
+footer {
+    height: 20vh;
+}
+footer nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 6vh 0;
+}
+footer nav a img {
+    width: 8rem;
+    height: 4rem;
+}
+footer nav div:first-of-type #email{
+    border: 2px solid #539D9F;
+    padding: 0.5rem 1rem;
+}
+footer nav div:first-of-type input[value="S'INSCRIRE"]{
+    background-color: #6ED0D3;
+    border-color: #539D9F;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+footer nav div:last-of-type p{
+    color: #6ED0D3;
+    font-size: 1rem;
+    padding-bottom: 1rem;
+}
+footer nav div:last-of-type div {
+    display: flex;
+    justify-content: space-between;
+}
+footer nav div:last-of-type div a i {
+    color: #539D9F;
+    
+}
+/* deuxieme page apropos.html */
+.voler {
+    background-image: url(../img-4/foot.jpg);
+    width: 100vw;
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+.voler div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+.voler div h2 {
+    width: 45vw;
+    padding-top: 10vh;
+}
+.voler div p{
+    width: 40vw;
+    padding-top: 5vh;
+}
+.experience, .ballons {
+    display: flex;
+}
+.experience .crayon{
+    background-image: url(../img-4/crayon.png);
+    width: 50vw;
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+.experience .sensorielle, .ballons .accroche {
+    width: 50vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2vh;
+    background: rgb(245,245,245);
+}
+.experience .sensorielle h2, .ballons .accroche h2{
+    color: #EDD066;
+    padding-top: 7vh;
+    padding-left: 5vw;
+    padding-bottom: 3vh;
+}
+.experience .sensorielle p, .ballons .accroche p{
+    color: #539D9F;
+    width: 40vw;
+    padding-left: 5vw;
+    padding-bottom: 2vh;
+}
+.experience .sensorielle p:last-child, .ballons .accroche p:last-child{
+    padding-bottom: 7vh;
+}
+.ballons .caffe {
+    background-image: url(../img-4/cafe.png);
+    width: 50vw;
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+/* Debut responsive */
+/* la nav du header se comporte differement et une font-size plus petite pour les titres h2*/
+@media (max-width:1250px){
+    header nav{
+        grid-template-columns: repeat(5, 1fr);
+        align-items: center;
+    }
+    h2{
+        font-size: 6vh;
+}
+.premiereSection article h2{
+    width: 80vw;
+}
+/* les differentes sections de apropos.html changent de direction */
+@media (max-width:870px){
+    .voler div h2 {
+        width: 80vw;
+        padding-top: 5vh;
+    }
+    .voler div p{
+        width: 80vw;
+        padding-top: 5vh;
+    }
+    .experience{
+        flex-direction: column-reverse;
+    }
+    .experience .crayon{
+        width: 100vw;
+        height: 50vh;
+    }
+    .experience .sensorielle {
+        width: 100vw;
+        height: auto;
+    }
+    .experience .sensorielle p, .ballons .accroche p{
+        width: 90vw;
+        padding-right: 5vw;
+    }
+    .ballons {
+        flex-direction: column;
+    }
+    .ballons .accroche {
+        width: 100vw;
+        height: auto;
+    }
+    .ballons .caffe {
+        width: 100vw;
+        height: 60vh;
+    }
+}
+/* Pour que le header et footer changent de display*/
+@media (max-width:830px){
+    header {
+        height: auto;
+    }
+    header nav{
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+        place-items: center;
+    }
+    footer .container{
+        flex-direction: column;
+        width: 40vw;
+        gap: 1rem;
+        text-align: center;
+    }
+    footer nav div:first-of-type{
+        text-align: center;
+        width: 27vw;
+        margin: auto;
+    }
+    footer nav div:first-of-type input[value="S'INSCRIRE"]{
+        margin-top: 1rem;
+    }
+    footer nav div:last-of-type div{
+        justify-content: center;
+        gap: 1rem;
+    }
+    footer nav div:last-of-type p{
+        text-align: center;
+    }
+}
+/* Pour que les sections de index.html reagissent correctement */
+@media (max-width:750px){
+    .premiereSection article {
+        place-items: center;
+    }
+}
+@media (max-width:660px){
+    .deuxiemeSection div {
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap: 3rem;
+    }
+}
+/* pour que le footer reagisse correctement */
+@media (max-width:540px){
+    footer nav div:first-of-type{
+        width: 40vw;
+    }
+}
+/* Pour que les titres fonctionnent correctement*/
+@media (max-width:400px){
+    h2 {
+        font-size: 4vh;
+    }
+    footer nav div:last-of-type p{
+        width: 45vw;
+        margin: auto;
+    }
+}
